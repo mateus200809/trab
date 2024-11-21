@@ -6,69 +6,93 @@
   <style>
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      text-align: center;
       background-color: #f9f9f9;
       color: #333;
       margin: 0;
       padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background-color: #FF6A00;
+      padding: 20px;
+      color: white;
     }
 
     h1 {
-      font-size: 3em;
-      color: #FF6A00;
-      margin-top: 30px;
+      font-size: 2.8em;
+      margin: 0;
       font-weight: bold;
     }
 
     h2 {
       font-size: 1.5em;
-      color: #888;
-      margin-bottom: 30px;
+      color: #666;
+      margin: 15px 0 30px;
     }
 
-    a {
-      display: inline-block;
-      margin: 15px;
-      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
     }
 
-    a img {
-      width: 150px;
-      height: 150px;
+    .product {
+      background-color: white;
       border-radius: 10px;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-      transition: box-shadow 0.3s ease;
+      margin: 15px;
+      width: 150px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
     }
 
-    a:hover {
-      transform: scale(1.08);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    .product img {
+      width: 100%;
+      height: auto;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
     }
 
-    a img:hover {
+    .product:hover {
+      transform: scale(1.05);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
   </style>
 </head>
 <body>
-  <h1>Bem-vindo ao CarlinExpress</h1>
+  <header>
+    <h1>Bem-vindo ao CarlinExpress</h1>
+  </header>
   <h2>Aqui você encontra os melhores produtos de qualidade</h2>
 
-  <a href="compracavaloswithcss.html">
-    <img src="imagecavalo.jpg" alt="CarlinExpress - Cavalos">
-  </a>
-  <a href="https://www.exemplo.com">
-    <img src="ferradura.webp" alt="CarlinExpress - Ferradura">
-  </a>
-  <a href="https://www.exemplo.com">
-    <img src="comedouro.webp" alt="CarlinExpress - Comedouro">
-  </a>
-  <a href="https://www.exemplo.com">
-    <img src="bebedouro.webp" alt="CarlinExpress - Bebedouro">
-  </a>
-  <br>
-  <a href="https://www.exemplo.com">
-    <img src="feno.jpeg" alt="CarlinExpress - Feno">
-  </a>
+  <div class="container">
+    <div class="product">
+      <a href="CompraCavalos.html">
+        <img src="imagecavalo.jpg" alt="Cavalos - CarlinExpress">
+      </a>
+    </div>
+    <div class="product">
+      <a href="https://www.exemplo.com">
+        <img src="ferradura.webp" alt="Ferradura - CarlinExpress">
+      </a>
+    </div>
+    <div class="product">
+      <a href="https://www.exemplo.com">
+        <img src="comedouro.webp" alt="Comedouro - CarlinExpress">
+      </a>
+    </div>
+    <div class="product">
+      <a href="https://www.exemplo.com">
+        <img src="bebedouro.webp" alt="Bebedouro - CarlinExpress">
+      </a>
+    </div>
+    <div class="product">
+      <a href="https://www.exemplo.com">
+        <img src="feno.jpeg" alt="Feno - CarlinExpress">
+      </a>
+    </div>
+  </div>
 </body>
-  </html>
+</html>
