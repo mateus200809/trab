@@ -1,28 +1,37 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compra de Cavalos</title>
+    <title>Compra de Esporas - Coleção Especial</title>
     <style>
+        :root {
+            --primary-color: #FF6A00;
+            --secondary-color: #e55b00;
+            --background-color: #f9f9f9;
+            --text-color: #333;
+        }
+
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f9f9f9;
+            background-color: var(--background-color);
             margin: 0;
             padding: 0;
             text-align: center;
-            color: #333;
+            color: var(--text-color);
         }
 
         header {
-            background-color: #FF6A00;
+            background-color: var(--primary-color);
             padding: 20px;
             color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
             font-size: 2.5em;
             margin: 0;
+            text-transform: capitalize;
         }
 
         .container {
@@ -30,32 +39,43 @@
             flex-wrap: wrap;
             justify-content: center;
             padding: 20px;
+            gap: 20px;
         }
 
         .card {
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            margin: 15px;
-            max-width: 300px;
+            width: 300px;
             text-align: left;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .card img {
             width: 100%;
+            height: 300px;
+            object-fit: cover;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
         }
 
+        .card-content {
+            padding: 15px;
+            flex-grow: 1;
+        }
+
         .card h3 {
             font-size: 1.8em;
-            color: #FF6A00;
-            margin: 15px 15px 0 15px;
+            color: var(--primary-color);
+            margin: 0 0 10px 0;
+            text-transform: capitalize;
         }
 
         .card p {
-            margin: 10px 15px;
+            margin: 5px 0;
             color: #555;
             font-size: 1em;
         }
@@ -66,57 +86,66 @@
             padding: 10px;
             text-align: center;
             color: white;
-            background-color: #FF6A00;
+            background-color: var(--primary-color);
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
             transition: background-color 0.3s ease;
+            align-self: stretch;
         }
 
         .btn:hover {
-            background-color: #e55b00;
+            background-color: var(--secondary-color);
         }
 
         .card:hover {
             transform: scale(1.05);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Compra de espora</h1>
+        <h1>Compra de Esporas</h1>
     </header>
     <div class="container">
         <div class="card">
-            <img src="espora.jpg" alt="Cavalo 1">
-            <h3>espora pouco usada</h3>
-            <p>Qualidade: otima</p>
-            <p>tempo de uso: 4 messes</p>
-            <p>Preço: R$ 2.050,0</p>
+            <img src="espora.jpg" alt="Espora Pouco Usada" loading="lazy">
+            <div class="card-content">
+                <h3>Espora Pouco Usada</h3>
+                <p><strong>Qualidade:</strong> Ótima</p>
+                <p><strong>Tempo de Uso:</strong> 4 meses</p>
+                <p><strong>Preço:</strong> R$ 2.050,00</p>
+            </div>
             <a href="#" class="btn">Comprar</a>
         </div>
         <div class="card">
-
-            <img src="esporalendaria.webp" alt="Cavalo 2">
-            <h3>espora Lendária</h3>
-            <p>Qualidade: aproximadamente ótima </p>
-            <p>tempo de uso: ???</p>
-            <p>Preço: R$ 2.050,00</p>
+            <img src="esporalendaria.webp" alt="Espora Lendária" loading="lazy">
+            <div class="card-content">
+                <h3>Espora Lendária</h3>
+                <p><strong>Qualidade:</strong> Aproximadamente Ótima</p>
+                <p><strong>Tempo de Uso:</strong> Desconhecido</p>
+                <p><strong>Preço:</strong> R$ 2.050,00</p>
+            </div>
             <a href="#" class="btn">Comprar</a>
         </div>
         <div class="card">
-            <img src="" alt="Cavalo 3">
-            <h3>espora Mítica</h3>
-            <p>Qualidade: INCÁLCULAVEL</p>
-            <p>Tempo de uso: aproximadamente 2050 anos</p>
-            <p>Preço: R$ 2050.000.000.000,00</p>
+            <img src="https://via.placeholder.com/300x300" alt="Espora Mítica" loading="lazy">
+            <div class="card-content">
+                <h3>Espora Mítica</h3>
+                <p><strong>Qualidade:</strong> Incalculável</p>
+                <p><strong>Tempo de Uso:</strong> Aproximadamente 2050 anos</p>
+                <p><strong>Preço:</strong> R$ 2.050.000.000.000,00</p>
+            </div>
             <a href="#" class="btn">Comprar</a>
         </div>
     </div>
 </body>
-<<<<<<< HEAD
-  </html>
-=======
-  </html>
->>>>>>> f2e3e94c944f0369b15189b51868815838b292a0
+</html>
