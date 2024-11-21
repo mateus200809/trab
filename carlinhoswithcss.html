@@ -1,220 +1,225 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>CarlinExpress</title>
-  <style>
-    body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarlinExpress - Produtos Equestres</title>
+    <style>
+        :root {
+            --primary-color: #FF6A00;
+            --secondary-color: #e55b00;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+        }
 
-    header {
-      background-color: #FF6A00;
-      padding: 20px;
-      text-align: center;
-      color: white;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    h1 {
-      font-size: 2.8em;
-      margin: 0;
-      font-weight: bold;
-    }
+        body {
+            font-family: 'Arial', 'Helvetica Neue', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
 
-    h2 {
-      font-size: 1.5em;
-      color: #666;
-      text-align: center;
-      margin: 20px 0 40px;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 20px;
-    }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-    .product {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-      margin: 15px;
-      width: 200px;
-      overflow: hidden;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      position: relative;
-    }
+        .site-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
 
-    .product img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
+        .site-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 10px;
+        }
 
-    .product:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
 
-    .product-details {
-      padding: 15px;
-      font-size: 0.9em;
-      color: #444;
-      border-top: 1px solid #e0e0e0;
-      padding-bottom: 50px;
-    }
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
 
-    .product-details h3 {
-      font-size: 1.2em;
-      color: #FF6A00;
-      margin: 10px 0;
-      font-weight: bold;
-    }
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
 
-    .product-details p {
-      margin: 8px 0;
-      color: #666;
-      font-size: 0.9em;
-    }
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
 
-    .product-details .price {
-      font-size: 1.1em;
-      color: #FF6A00;
-      font-weight: bold;
-    }
+        .product-details {
+            padding: 15px;
+            text-align: center;
+        }
 
-    .buy-btn {
-      display: block;
-      width: 100%;
-      padding: 12px;
-      background-color: #FF6A00;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
+        .product-title {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
 
-    .buy-btn:hover {
-      background-color: #e55b00;
-    }
+        .product-price {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
 
-    .hidden-link {
-      text-decoration: none;
-      color: #1a1a1a;
-      background-color: #101010;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 0.9em;
-      border: 1px solid #1a1a1a;
-      display: inline-block;
-      opacity: 0.3;
-      transition: opacity 0.3s ease;
-      margin: 10px 0;
-    }
+        .product-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            bottom: 0;
+        }
 
-    .hidden-link:hover {
-      opacity: 0.7;
-      background-color: #000;
-      color: #f5f5f5;
-    }
+        .product-btn:hover {
+            background-color: var(--secondary-color);
+        }
 
-    .sac-link {
-      text-decoration: none;
-      color: #FF6A00;
-      font-weight: bold;
-      font-size: 1.1em;
-      transition: color 0.3s ease;
-      margin-left: 15px;
-    }
+        .site-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
 
-    .sac-link:hover {
-      color: #e55b00;
-    }
+        .hidden-link {
+            text-decoration: none;
+            color: #1a1a1a;
+            background-color: #101010;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            border: 1px solid #1a1a1a;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
 
-    .links-container {
-      text-align: center;
-      margin-top: 20px;
-    }
-  </style>
+        .hidden-link:hover {
+            opacity: 0.7;
+            background-color: #000;
+            color: #f5f5f5;
+        }
+
+        .sac-link {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        .sac-link:hover {
+            color: var(--secondary-color);
+        }
+
+        @media screen and (max-width: 600px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Bem-vindo ao CarlinExpress</h1>
-  </header>
-  <h2>Aqui você encontra os melhores produtos de qualidade</h2>
-
-  <div class="container">
-    <div class="product">
-      <a href="compracavaloswithcss.html">
-        <img src="imagecavalo.jpg" alt="Cavalos - CarlinExpress">
-        <div class="product-details">
-          <h3>Cavalos</h3>
-          
+    <header>
+        <div class="container">
+            <h1 class="site-title">CarlinExpress</h1>
+            <p class="site-subtitle">Aqui você encontra os melhores produtos de qualidade</p>
         </div>
-      </a>
-      <a href="compracavaloswithcss.html" class="buy-btn">Comprar</a>
-    </div>
+    </header>
 
-    <div class="product">
-      <a href="compraferradura.html">
-        <img src="ferradura.webp" alt="Ferradura - CarlinExpress">
-        <div class="product-details">
-          <h3>Ferradura</h3>
-          
+    <main class="container">
+        <div class="products-grid">
+            <div class="product-card">
+                <a href="compracavaloswithcss.html">
+                    <img src="imagecavalo.jpg" alt="Cavalos - CarlinExpress" class="product-image">
+                    <div class="product-details">
+                        <h3 class="product-title">Cavalos</h3>
+                    </div>
+                </a>
+                <a href="compracavaloswithcss.html" class="product-btn">Comprar</a>
+            </div>
+
+            <div class="product-card">
+                <a href="compraferradura.html">
+                    <img src="ferradura.webp" alt="Ferradura - CarlinExpress" class="product-image">
+                    <div class="product-details">
+                        <h3 class="product-title">Ferradura</h3>
+                    </div>
+                </a>
+                <a href="compraferradura.html" class="product-btn">Comprar</a>
+            </div>
+
+            <div class="product-card">
+                <a href="https://www.exemplo.com">
+                    <img src="comedouro.webp" alt="Comedouro - CarlinExpress" class="product-image">
+                    <div class="product-details">
+                        <h3 class="product-title">Comedouro</h3>
+                    </div>
+                </a>
+                <a href="https://www.exemplo.com" class="product-btn">Comprar</a>
+            </div>
+
+            <div class="product-card">
+                <a href="https://www.exemplo.com">
+                    <img src="bebedouro.webp" alt="Bebedouro - CarlinExpress" class="product-image">
+                    <div class="product-details">
+                        <h3 class="product-title">Bebedouro</h3>
+                    </div>
+                </a>
+                <a href="https://www.exemplo.com" class="product-btn">Comprar</a>
+            </div>
+
+            <div class="product-card">
+                <a href="https://www.exemplo.com">
+                    <img src="feno.jpeg" alt="Feno - CarlinExpress" class="product-image">
+                    <div class="product-details">
+                        <h3 class="product-title">Feno</h3>
+                    </div>
+                </a>
+                <a href="https://www.exemplo.com" class="product-btn">Comprar</a>
+            </div>
         </div>
-      </a>
-      <a href="compraferradura.html" class="buy-btn">Comprar</a>
-    </div>
+    </main>
 
-    <div class="product">
-      <a href="https://www.exemplo.com">
-        <img src="comedouro.webp" alt="Comedouro - CarlinExpress">
-        <div class="product-details">
-          <h3>Comedouro</h3>
-          
-        </div>
-      </a>
-      <a href="https://www.exemplo.com" class="buy-btn">Comprar</a>
+    <div class="site-links">
+        <a href="mnegro.html" class="hidden-link">Mercado Negro</a>
+        <a href="https://www.carlinhosia.rf.gd" class="sac-link">SAC</a>
     </div>
-
-    <div class="product">
-      <a href="https://www.exemplo.com">
-        <img src="bebedouro.webp" alt="Bebedouro - CarlinExpress">
-        <div class="product-details">
-          <h3>Bebedouro</h3>
-          
-        </div>
-      </a>
-      <a href="https://www.exemplo.com" class="buy-btn">Comprar</a>
-    </div>
-
-    <div class="product">
-      <a href="https://www.exemplo.com">
-        <img src="feno.jpeg" alt="Feno - CarlinExpress">
-        <div class="product-details">
-          <h3>Feno</h3>
-          
-        </div>
-      </a>
-      <a href="https://www.exemplo.com" class="buy-btn">Comprar</a>
-    </div>
-  </div>
-
-  <div class="links-container">
-    <a href="mnegro.html" class="hidden-link">Mercado Negro</a>
-    <a href="https://www.carlinhosia.rf.gd" class="sac-link">SAC</a>
-  </div>
 </body>
 </html>
