@@ -34,9 +34,80 @@
 
     .container {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
       padding: 20px;
+    }
+
+    .product {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      margin: 15px;
+      width: 200px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-details {
+      padding: 15px;
+      font-size: 0.9em;
+      color: #444;
+      border-top: 1px solid #e0e0e0;
+      padding-bottom: 50px;
+    }
+
+    .product-details h3 {
+      font-size: 1.2em;
+      color: #FF6A00;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+
+    .product-details p {
+      margin: 8px 0;
+      color: #666;
+      font-size: 0.9em;
+    }
+
+    .product-details .price {
+      font-size: 1.1em;
+      color: #FF6A00;
+      font-weight: bold;
+    }
+
+    .buy-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #FF6A00;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .buy-btn:hover {
+      background-color: #e55b00;
     }
 
     .hidden-link {
@@ -65,10 +136,16 @@
       font-weight: bold;
       font-size: 1.1em;
       transition: color 0.3s ease;
+      margin-left: 15px;
     }
 
     .sac-link:hover {
       color: #e55b00;
+    }
+
+    .links-container {
+      text-align: center;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -76,12 +153,68 @@
   <header>
     <h1>Bem-vindo ao CarlinExpress</h1>
   </header>
-  
   <h2>Aqui você encontra os melhores produtos de qualidade</h2>
 
   <div class="container">
+    <div class="product">
+      <a href="compracavaloswithcss.html">
+        <img src="imagecavalo.jpg" alt="Cavalos - CarlinExpress">
+        <div class="product-details">
+          <h3>Cavalos</h3>
+          
+        </div>
+      </a>
+      <a href="compracavaloswithcss.html" class="buy-btn">Comprar</a>
+    </div>
+
+    <div class="product">
+      <a href="compraferradura.html">
+        <img src="ferradura.webp" alt="Ferradura - CarlinExpress">
+        <div class="product-details">
+          <h3>Ferradura</h3>
+          
+        </div>
+      </a>
+      <a href="compraferradura.html" class="buy-btn">Comprar</a>
+    </div>
+
+    <div class="product">
+      <a href="https://www.exemplo.com">
+        <img src="comedouro.webp" alt="Comedouro - CarlinExpress">
+        <div class="product-details">
+          <h3>Comedouro</h3>
+          
+        </div>
+      </a>
+      <a href="https://www.exemplo.com" class="buy-btn">Comprar</a>
+    </div>
+
+    <div class="product">
+      <a href="https://www.exemplo.com">
+        <img src="bebedouro.webp" alt="Bebedouro - CarlinExpress">
+        <div class="product-details">
+          <h3>Bebedouro</h3>
+          
+        </div>
+      </a>
+      <a href="https://www.exemplo.com" class="buy-btn">Comprar</a>
+    </div>
+
+    <div class="product">
+      <a href="https://www.exemplo.com">
+        <img src="feno.jpeg" alt="Feno - CarlinExpress">
+        <div class="product-details">
+          <h3>Feno</h3>
+          
+        </div>
+      </a>
+      <a href="https://www.exemplo.com" class="buy-btn">Comprar</a>
+    </div>
+  </div>
+
+  <div class="links-container">
     <a href="mnegro.html" class="hidden-link">Mercado Negro</a>
-    <a href="https://www.carlinhosia.com" class="sac-link">SAC</a>
+    <a href="https://www.carlinhosia.rf.gd" class="sac-link">SAC</a>
   </div>
 </body>
 </html>
