@@ -3,121 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CarlinBlackMarket - Compra de Cavalos</title>
+    <title>CarlinBlackMarket</title>
     <style>
         :root {
-            --primary-color: #FF4500;
-            --secondary-color: #FF6347;
+            --primary-color: #8B0000;
+            --secondary-color: #FF4500;
             --background-color: #1a1a1a;
             --card-color: #2c2c2c;
             --text-color: #f0f0f0;
+            --price-color: #FF6B6B;
         }
 
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
             background-color: var(--background-color);
             margin: 0;
             padding: 0;
-            text-align: center;
+            min-height: 100vh;
             color: var(--text-color);
         }
 
         header {
-            background-color: var(--primary-color);
-            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 2rem;
             color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="rgba(255,255,255,0.1)" d="M0 0h100v100H0z"/></svg>');
+            opacity: 0.1;
         }
 
         h1 {
-            font-size: 2.5em;
+            font-size: 3em;
             margin: 0;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .card {
             background-color: var(--card-color);
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-            width: 300px;
-            text-align: left;
-            transition: all 0.3s ease;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            color: var(--text-color);
-        }
-
-        .card img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 69, 0, 0.2);
         }
 
         .compra-aviso {
             background-color: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 0.8rem;
             font-weight: bold;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9em;
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            filter: brightness(0.9);
         }
 
         .card-content {
-            padding: 15px;
+            padding: 1.5rem;
             flex-grow: 1;
         }
 
         .card h3 {
             font-size: 1.8em;
-            color: var(--primary-color);
-            margin: 0 0 10px 0;
-            text-transform: capitalize;
+            color: var(--secondary-color);
+            margin: 0 0 1rem 0;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .card p {
-            margin: 5px 0;
+            margin: 0.8rem 0;
+            font-size: 1.1em;
+            line-height: 1.5;
             color: var(--text-color);
-            font-size: 1em;
+        }
+
+        .card p strong {
+            color: var(--secondary-color);
+        }
+
+        .price {
+            color: var(--price-color);
+            font-size: 1.4em;
+            font-weight: bold;
+            margin: 1rem 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .btn {
-            display: block;
-            margin: 15px;
-            padding: 10px;
+            display: inline-block;
+            width: calc(100% - 3rem);
+            margin: 1.5rem;
+            padding: 1rem;
             text-align: center;
             color: white;
-            background-color: var(--primary-color);
-            border-radius: 5px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
             text-decoration: none;
             font-weight: bold;
-            transition: background-color 0.3s ease;
-            align-self: stretch;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
-            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4);
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
         }
 
         .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card:hover img {
             transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
         }
 
         @media (max-width: 768px) {
             .container {
-                flex-direction: column;
-                align-items: center;
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .card {
+                margin: 0 1rem;
             }
         }
     </style>
@@ -128,37 +178,39 @@
     </header>
     <div class="container">
         <div class="card">
-            <div class="compra-aviso">COMPRA-SE</div>
+            <div class="compra-aviso">PROCURA-SE</div>
             <img src="cavalo-monstro.jpg" alt="Cavalo Monstro" loading="lazy">
             <div class="card-content">
                 <h3>Cavalo Monstro</h3>
                 <p><strong>Descrição:</strong> Cavalo imponente e assustador</p>
                 <p><strong>Tamanho:</strong> Gigantesco</p>
-                <p><strong>Preço:</strong> R$ 150.000,00</p>
+                <p class="price">Oferecemos: R$ 150.000,00</p>
             </div>
-            <a href="#" class="btn">Comprar</a>
+            <button class="btn">Vender para nós</button>
         </div>
+
         <div class="card">
-            <div class="compra-aviso">COMPRA-SE</div>
+            <div class="compra-aviso">PROCURA-SE</div>
             <img src="cavalo-neymar.jpg" alt="Cavalo do Neymar" loading="lazy">
             <div class="card-content">
                 <h3>Cavalo do Neymar</h3>
                 <p><strong>Descrição:</strong> Cavalo de elite com estilo</p>
                 <p><strong>Origem:</strong> Campo de Futebol</p>
-                <p><strong>Preço:</strong> R$ 250.000,00</p>
+                <p class="price">Oferecemos: R$ 250.000,00</p>
             </div>
-            <a href="#" class="btn">Comprar</a>
+            <button class="btn">Vender para nós</button>
         </div>
+
         <div class="card">
-            <div class="compra-aviso">COMPRA-SE</div>
+            <div class="compra-aviso">PROCURA-SE</div>
             <img src="cavalo-montanha.jpg" alt="Cavalo da Montanha" loading="lazy">
             <div class="card-content">
                 <h3>Cavalo da Montanha</h3>
                 <p><strong>Descrição:</strong> Cavalo resistente e robusto</p>
                 <p><strong>Terreno:</strong> Montanhês</p>
-                <p><strong>Preço:</strong> R$ 180.000,00</p>
+                <p class="price">Oferecemos: R$ 180.000,00</p>
             </div>
-            <a href="#" class="btn">Comprar</a>
+            <button class="btn">Vender para nós</button>
         </div>
     </div>
 </body>
